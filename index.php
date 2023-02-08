@@ -15,7 +15,7 @@
 <body>
 
 <h1> Home </h1>
-<p> Welkom bij de homepage over toegankelijkheid van auditief beperkten in de samenleving. Hello. </p>
+<p> Welkom bij de homepage over toegankelijkheid van auditief beperkten in de samenleving. Hello Hi. </p>
 
 </body>
 </html>
