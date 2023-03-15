@@ -32,6 +32,7 @@ li {
     width: 200%;
     height: 200%;
     text-align: center;
+    text-color:white;
     transform: skewY(-60deg) rotate(15deg);
     padding-top: 20px;
 }
@@ -45,7 +46,7 @@ li:nth-child(3) {
     transform: rotate(240deg) skewY(30deg);
 }
 li:first-child .text {
-    background: green;
+    background: yellow;
 }
 li:nth-child(2) .text {
     background: tomato;
