@@ -17,5 +17,20 @@
 <h1> Home </h1>
 <p> Welkom bij de homepage over toegankelijkheid van auditief beperkten in de samenleving. Hello Hi. </p>
 
+<ul class="circle">
+    <li>
+        <div class="text">1</div>
+
+    </li>
+    <li>
+        <div class="text">2</div>
+    </li>
+    <li>
+        <div class="text">3</div>
+    </li>
+</ul>
+
+
+
 </body>
 </html>
