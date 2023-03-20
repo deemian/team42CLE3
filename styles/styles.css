@@ -1,10 +1,17 @@
 body {
-    background-color: #ccf1ff;
+    background-color: #000000;
 }
 
 h1 {
-    color: #4d4d4d;
+    color: #ff0000;
 }
+
+p {
+    color: #ffffff;
+    text-align: center;
+    font-size:larger;
+}
+
 
 .circle-outer {
     position: relative;
@@ -74,13 +81,13 @@ li:nth-child(3) .background {
     transform: rotate(240deg) skewY(30deg);
 }
 li:first-child .background {
-    background: green;
+    background: red;
 }
 li:nth-child(2) .background {
-    background: tomato;
+    background: blue;
 }
 li:nth-child(3) .background {
-    background: aqua;
+    background: yellow;
 }
 
 /*.circle {*/
