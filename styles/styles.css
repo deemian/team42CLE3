@@ -1,17 +1,22 @@
 body {
-    background-color: #ccf1ff;
+    background-color: #000000;
 }
 
 h1 {
-    color: #4d4d4d;
+    color: red;
+    text-align: center;
 }
 
-img {
-    padding: 5px;
-    width: 75px;
+p {
+    color: #ffffff;
+    text-align: center;
+    font-size:larger;
 }
 
-div#button {
-    margin:30px;
-    background-color:yellow;
+.emergency {
+    color: white;
+}
+
+.error {
+    color: red;
 }
