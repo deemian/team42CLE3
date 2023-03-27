@@ -37,6 +37,7 @@ function emergencyClickHandler(e)
         return;
     }
 
+    console.log(clickedItem);
     // if (clickedItem.id == "name") {
     //     elementClickHandler(e);
     // } else {
@@ -72,7 +73,7 @@ function createEmergencies(data)
     for (let emergency of data) {
         // // Wrapper element for every emergency button. We need the wrapper now, because adding it later
         // // will result in the emergency being ordered based on the load times of the API instead of chronically
-        let emergencyButton = document.createElement('div');
+        let emergencyButton = document.createElement('button');
         emergencyButton.classList.add('emergency');
         emergencyButton.dataset.name = emergency.name;
 
@@ -102,10 +103,8 @@ function fillEmergencyButton(emergency)
     // Wrapper element for every emergency button
     let emergencyButton = document.querySelector(`.emergency[data-name='${emergency.name}']`);
 
-    // Element for the emergency
-    let title = document.createElement('h2');
-    title.innerHTML = `${emergency.name}`;
-    emergencyButton.appendChild(title);
+    // Fill the emergency button
+    emergencyButton.innerHTML = `${emergency.name}`;
 
     // Add emergency to emergencyData
     emergencyData[emergency.id] = emergency;
