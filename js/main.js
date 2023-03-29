@@ -25,23 +25,58 @@ function init()
 }
 
 /**
+ * Handler for when the details button is clicked
+ * 
+ * @param e 
+ */
+function emergencyButtonHandler(e) {
+    let clickedItem;
+    
+    if (e.target.nodeName == "DIV" && e.target.classList.contains('emergency')) {
+        clickedItem = e.target;
+    } else if (e.target.parentElement.nodeName == "DIV" && e.target.parentElement.classList.contains('emergency')) {
+        clickedItem = e.target.parentElement;
+    }
+  
+    let emergency = emergencyData[clickedItem.dataset.id];
+    
+    emergencies.innerHTML = "";
+
+    fetch(fetchUrl + '?id=' + emergency.id)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        return response.json();
+    })
+    .then(createEmergencies)
+    .catch(ajaxErrorHandler);
+}
+
+
+/**
  * Handler for when a button is clicked
  *
  * @param e
  */
 function emergencyClickHandler(e)
 {
-    let clickedItem = e.target;
+    let clickedItem;
 
-    if (clickedItem.nodeName !== "BUTTON") {
+    if (e.target.nodeName == "DIV" && e.target.classList.contains('emergency')) {
+        clickedItem = e.target;
+    } else if (e.target.parentElement.nodeName == "DIV" && e.target.parentElement.classList.contains('emergency')) {
+        clickedItem = e.target.parentElement;
+    } else {
         return;
     }
 
-    // if (clickedItem.id == "name") {
-    //     elementClickHandler(e);
-    // } else {
-    //     return;
-    // }
+    if (clickedItem.classList.contains('emergency')) {
+        emergencyButtonHandler(e);
+    } else {
+        return;
+    }
 }
 
 /**
@@ -68,47 +103,41 @@ function getData()
  */
 function createEmergencies(data)
 {
+    // If data does not have length, data["options"] is data
+    if (typeof data.length === 'undefined') {
+        data = data["options"];
+    }
+
     // Loop through the list of emergencies
-    for (let emergency of data) {
+    for (let x = 0; x < data.length; x++) {
+        const emergency = data[x];
         // // Wrapper element for every emergency button. We need the wrapper now, because adding it later
         // // will result in the emergency being ordered based on the load times of the API instead of chronically
         let emergencyButton = document.createElement('div');
+        
+        // Add attributes to the emergency button
         emergencyButton.classList.add('emergency');
+        emergencyButton.dataset.id = emergency.id;
         emergencyButton.dataset.name = emergency.name;
 
+        // If button has image add for the emergency button
+        if (emergency.id == 1 || emergency.id == 2 || emergency.id == 3) {
+            let img = document.createElement('img');
+            img.src = `./images/${emergency.name}.png`;
+            emergencyButton.appendChild(img);
+        }
+    
+        // Title for the emergency button
+        let title = document.createElement('h2');
+        title.innerHTML = `${emergency.name}`;
+        emergencyButton.appendChild(title);
+
+        // Add emergency to emergencyData
+        emergencyData[emergency.id] = emergency;
+        
         // // Append emergency to the actual HTML
         emergencies.appendChild(emergencyButton);
-
-        // Retrieve the detail information from the API
-        fetch((fetchUrl + '?id=' + emergency.id))
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(response.statusText);
-                }
-                return response.json();
-            })
-            .then(fillEmergencyButton)
-            .catch(ajaxErrorHandler);
     }
-}
-
-/**
- * Create the actual contents of the div based on the loaded API information
- *
- * @param emergency
- */
-function fillEmergencyButton(emergency)
-{
-    // Wrapper element for every emergency button
-    let emergencyButton = document.querySelector(`.emergency[data-name='${emergency.name}']`);
-
-    // Element for the emergency
-    let title = document.createElement('h2');
-    title.innerHTML = `${emergency.name}`;
-    emergencyButton.appendChild(title);
-
-    // Add emergency to emergencyData
-    emergencyData[emergency.id] = emergency;
 }
 
 /**
