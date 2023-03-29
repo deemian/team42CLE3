@@ -97,7 +97,6 @@ function getData()
  */
 function createEmergencies(data)
 {
-    console.log(data);
     // Loop through the list of emergencies
     for (let x = 0; x < data.length; x++) {
         const emergency = data[x];
