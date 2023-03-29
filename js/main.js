@@ -56,10 +56,11 @@ function emergencyButtonHandler(e) {
  */
 function emergencyClickHandler(e)
 {
-    let clickedItem = e.target;
-
-    if (clickedItem.nodeName !== "DIV" && clickedItem.classList.contains('emergency')) {
-        return;
+    let clickedItem;
+    if (e.target.nodeName == "DIV" && e.target.classList.contains('emergency')) {
+        clickedItem = e.target;
+    } else if (e.target.parentElement.nodeName == "DIV" && e.target.parentElement.classList.contains('emergency')) {
+        clickedItem = e.target.parentElement;
     }
 
     if (clickedItem.classList.contains('emergency')) {
