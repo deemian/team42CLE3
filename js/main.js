@@ -103,11 +103,13 @@ function getData()
  */
 function createEmergencies(data)
 {
-    // If data does not have length, data["options"] is data
+    // Check if data is first array
+    let emergency_name = false;
     if (typeof data.length === 'undefined') {
+        emergency_name = data["name"];
         data = data["options"];
     }
-
+    
     // Loop through the list of emergencies
     for (let x = 0; x < data.length; x++) {
         const emergency = data[x];
@@ -117,6 +119,9 @@ function createEmergencies(data)
         
         // Add attributes to the emergency button
         emergencyButton.classList.add('emergency');
+        if (emergency_name) {
+            emergencyButton.classList.add(emergency_name);
+        }
         emergencyButton.dataset.id = emergency.id;
         emergencyButton.dataset.name = emergency.name;
 
