@@ -25,6 +25,31 @@ function init()
 }
 
 /**
+ * Handler for when the details button is clicked
+ * 
+ * @param e 
+ */
+function emergencyButtonHandler(e) {
+    let clickedItem = e.target;
+  
+    let emergency = emergencyData[clickedItem.dataset.id];
+    
+    emergencies.innerHTML = "";
+
+    fetch(fetchUrl + '?id=' + emergency.id)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        return response.json();
+    })
+    .then(createEmergencies)
+    .catch(ajaxErrorHandler);
+}
+
+
+/**
  * Handler for when a button is clicked
  *
  * @param e
@@ -37,11 +62,11 @@ function emergencyClickHandler(e)
         return;
     }
 
-    // if (clickedItem.id == "name") {
-    //     elementClickHandler(e);
-    // } else {
-    //     return;
-    // }
+    if (clickedItem.classList.contains('emergency')) {
+        emergencyButtonHandler(e);
+    } else {
+        return;
+    }
 }
 
 /**
@@ -69,46 +94,26 @@ function getData()
 function createEmergencies(data)
 {
     // Loop through the list of emergencies
-    for (let emergency of data) {
+    for (let x = 0; x < data.length; x++) {
+        const emergency = data[x];
         // // Wrapper element for every emergency button. We need the wrapper now, because adding it later
         // // will result in the emergency being ordered based on the load times of the API instead of chronically
-        let emergencyButton = document.createElement('div');
+        let emergencyButton = document.createElement('button');
+        
+        // Add attricbutes to the emergency button
         emergencyButton.classList.add('emergency');
+        emergencyButton.dataset.id = emergency.id;
         emergencyButton.dataset.name = emergency.name;
 
+        // Fill the emergency button
+        emergencyButton.innerHTML = `${emergency.name}`;
+
+        // Add emergency to emergencyData
+        emergencyData[emergency.id] = emergency;
+        
         // // Append emergency to the actual HTML
         emergencies.appendChild(emergencyButton);
-
-        // Retrieve the detail information from the API
-        fetch((fetchUrl + '?id=' + emergency.id))
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(response.statusText);
-                }
-                return response.json();
-            })
-            .then(fillEmergencyButton)
-            .catch(ajaxErrorHandler);
     }
-}
-
-/**
- * Create the actual contents of the div based on the loaded API information
- *
- * @param emergency
- */
-function fillEmergencyButton(emergency)
-{
-    // Wrapper element for every emergency button
-    let emergencyButton = document.querySelector(`.emergency[data-name='${emergency.name}']`);
-
-    // Element for the emergency
-    let title = document.createElement('h2');
-    title.innerHTML = `${emergency.name}`;
-    emergencyButton.appendChild(title);
-
-    // Add emergency to emergencyData
-    emergencyData[emergency.id] = emergency;
 }
 
 /**
