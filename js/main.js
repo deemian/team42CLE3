@@ -58,7 +58,7 @@ function emergencyClickHandler(e)
 {
     let clickedItem = e.target;
 
-    if (clickedItem.nodeName !== "BUTTON") {
+    if (clickedItem.nodeName !== "DIV" && clickedItem.classList.contains('emergency')) {
         return;
     }
 
@@ -98,22 +98,45 @@ function createEmergencies(data)
         const emergency = data[x];
         // // Wrapper element for every emergency button. We need the wrapper now, because adding it later
         // // will result in the emergency being ordered based on the load times of the API instead of chronically
-        let emergencyButton = document.createElement('button');
+        let emergencyButton = document.createElement('div');
         
-        // Add attricbutes to the emergency button
+        // Add attributes to the emergency button
         emergencyButton.classList.add('emergency');
         emergencyButton.dataset.id = emergency.id;
         emergencyButton.dataset.name = emergency.name;
-
-        // Fill the emergency button
-        emergencyButton.innerHTML = `${emergency.name}`;
-
-        // Add emergency to emergencyData
-        emergencyData[emergency.id] = emergency;
         
         // // Append emergency to the actual HTML
         emergencies.appendChild(emergencyButton);
+
+        // Retrieve the detail information from the API
+        fetch((fetchUrl + '?id=' + emergency.id))
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                return response.json();
+            })
+            .then(fillEmergencyButton)
+            .catch(ajaxErrorHandler);
     }
+}
+
+function fillEmergencyButton(emergency) {
+    // Wrapper element for every emergency button
+    let emergencyButton = document.querySelector(`.emergency[data-name='${emergency.name}']`);
+
+    // Image for the emergency button
+    let img = document.createElement('img');
+    img.src = `./images/${emergency.name}.png`;
+    emergencyButton.appendChild(img);
+
+    // Title for the emergency button
+    let title = document.createElement('h2');
+    title.innerHTML = `${emergency.name}`;
+    emergencyButton.appendChild(title);
+
+    // Add emergency to emergencyData
+    emergencyData[emergency.id] = emergency;
 }
 
 /**

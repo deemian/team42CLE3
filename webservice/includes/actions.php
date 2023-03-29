@@ -8,17 +8,17 @@ function getData()
         [
             "id" => 1,
             "name" => "Ambulance",
-            "image" => "AmbulanceIcon.png"
+            "image" => "Ambulance.png"
         ],
         [
             "id" => 2,
             "name" => "Police",
-            "image" => "politieIcon.png"
+            "image" => "Police.png"
         ],
         [
             "id" => 3,
             "name" => "Firefighters",
-            "image" => "brandweerIcon.png"
+            "image" => "Firefighters.png"
         ]
     ];
 }
@@ -31,6 +31,8 @@ function getDataDetails($id)
 {
     $details = [
         1 => [
+            "id" => 1,
+            "name" => "Ambulance",
             [
                 "id" => 11,
                 "name" => "Iemand in gevaar",
@@ -45,6 +47,8 @@ function getDataDetails($id)
             ]
         ],
         2 => [
+            "id" => 2,
+            "name" => "Police",
             [
                 "id" => 21,
                 "name" => "Lijk",
@@ -71,6 +75,8 @@ function getDataDetails($id)
             ]
         ],
         3 => [
+            "id" => 3,
+            "name" => "Firefighters",
             [
                 "id" => 31,
                 "name" => "Brand",
