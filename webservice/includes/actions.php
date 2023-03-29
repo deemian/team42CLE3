@@ -8,14 +8,17 @@ function getData()
         [
             "id" => 1,
             "name" => "Ambulance",
+            "image" => "AmbulanceIcon.png"
         ],
         [
             "id" => 2,
             "name" => "Police",
+            "image" => "politieIcon.png"
         ],
         [
             "id" => 3,
             "name" => "Firefighters",
+            "image" => "brandweerIcon.png"
         ]
     ];
 }

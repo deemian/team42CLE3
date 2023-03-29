@@ -13,6 +13,45 @@ p {
     font-size:larger;
 }
 
+div {
+    background-color:black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:10px;
+}
+
+div[data-name="Ambulance"] {
+    border:1px solid yellow;
+    background-color:yellow;
+    padding:10px;
+    max-width:200px;
+    text-align:center;
+}
+
+
+div[data-name="Firefighters"] {
+    border:1px solid red;
+    background-color:red;
+    padding:10px;
+    max-width:200px;
+    text-align:center;
+}
+
+div[data-name="Police"] {
+    border:1px solid blue;
+    background-color:blue;
+    padding:10px;
+    max-width:200px;
+    text-align:center;
+}
+
+
+#emergencies{
+    background-color:black;
+    border: black solid 2px;
+    margin:10px;
+}
+
 .emergency {
     color: white;
 }
