@@ -57,10 +57,13 @@ function emergencyButtonHandler(e) {
 function emergencyClickHandler(e)
 {
     let clickedItem;
+
     if (e.target.nodeName == "DIV" && e.target.classList.contains('emergency')) {
         clickedItem = e.target;
     } else if (e.target.parentElement.nodeName == "DIV" && e.target.parentElement.classList.contains('emergency')) {
         clickedItem = e.target.parentElement;
+    } else {
+        return;
     }
 
     if (clickedItem.classList.contains('emergency')) {
@@ -94,6 +97,7 @@ function getData()
  */
 function createEmergencies(data)
 {
+    console.log(data);
     // Loop through the list of emergencies
     for (let x = 0; x < data.length; x++) {
         const emergency = data[x];
