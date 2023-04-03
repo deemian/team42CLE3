@@ -11,11 +11,11 @@ function getData()
         ],
         [
             "id" => 2,
-            "name" => "Police",
+            "name" => "Politie",
         ],
         [
             "id" => 3,
-            "name" => "Firefighters",
+            "name" => "Brandweer",
         ]
     ];
 }
@@ -47,7 +47,7 @@ function getDataDetails($id)
         ],
         2 => [
             "id" => 2,
-            "name" => "Police",
+            "name" => "Politie",
             "options" => [
                 [
                     "id" => 21,
@@ -77,7 +77,7 @@ function getDataDetails($id)
         ],
         3 => [
             "id" => 3,
-            "name" => "Firefighters",
+            "name" => "Brandweer",
             "options" => [
                 [
                     "id" => 31,

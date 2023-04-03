@@ -22,7 +22,7 @@ div {
 }
 
 .emergency {
-    background-color:yellow;
+    background-color:grey;
     border: #c9c3c3 3px solid;
     padding:20px;
     max-width:250px;
@@ -120,14 +120,21 @@ div[data-id="34"] {
     padding:20px;
 }
 
-div[data-name="Firefighters"] {
+div[data-name="Ambulance"] {
+    background-color:yellow;
+    border: #c9c3c3 3px solid;
+    padding:20px;
+
+}
+
+div[data-name="Brandweer"] {
     background-color:red;
     border: #c9c3c3 3px solid;
     padding:20px;
 
 }
 
-div[data-name="Police"] {
+div[data-name="Politie"] {
     background-color:blue;
     border: #c9c3c3 3px solid;
     padding:20px;
