@@ -39,6 +39,9 @@ function emergencyButtonHandler(e) {
     }
   
     let emergency = emergencyData[clickedItem.dataset.id];
+
+    selectedInfo.push(emergency);
+    localStorage.setItem('selectedInfo', JSON.stringify(selectedInfo));
     
     emergencies.innerHTML = "";
 
