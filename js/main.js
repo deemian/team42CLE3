@@ -15,6 +15,8 @@ function init()
     emergencies = document.getElementById('emergencies')
     emergencies.addEventListener('click', emergencyClickHandler);
 
+    back = document.getElementById('back')
+
     getData();
 
     // Get selected info of the emergencies
@@ -106,6 +108,11 @@ function getData()
  */
 function createEmergencies(data)
 {
+    let backButton = document.createElement('button')
+    backButton.innerHTML = "Terug"
+    // backButton.addEventListener('click', functienaamidk)
+    back.appendChild(backButton)
+
     // Check if data is first array
     let emergency_name = false;
     if (typeof data.length === 'undefined') {
