@@ -1,7 +1,7 @@
 window.addEventListener('load', init);
 
 //Global variables
-let fetchUrl = 'http://localhost/team42CLE3/webservice/index.php';
+let fetchUrl = (window.location.href + 'webservice/index.php');
 let emergencies;
 let emergencyData = {};
 let selectedInfo = [];
