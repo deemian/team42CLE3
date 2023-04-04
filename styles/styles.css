@@ -21,7 +21,20 @@ div {
     border-radius:10px;
 }
 
-.emergency {
+img {
+    max-width:60px;
+    max-height:60px;
+    margin-right:10px;
+}
+
+#emergencies{
+    background-color:black;
+    border: black solid 2px;
+    margin:20px;
+
+}
+
+.emergency, .send-emergency {
     background-color:grey;
     border: #c9c3c3 3px solid;
     padding:20px;
@@ -30,123 +43,16 @@ div {
     text-align:center;
 }
 
-img {
-    max-width:60px;
-    max-height:60px;
-    margin-right:10px;
+.Ambulance {
+    background-color: yellow;
 }
 
-div[data-name="Ambulance"] {
-    background-color:yellow;
-    border: #c9c3c3 3px solid;
-    padding:20px;
+.Brandweer {
+    background-color: red;
 }
 
-div[data-id="11"] {
-    background-color:yellow;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="12"] {
-    background-color:yellow;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="13"] {
-    background-color:yellow;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="21"] {
-    background-color:blue;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="22"] {
-    background-color:blue;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="23"] {
-    background-color:blue;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="24"] {
-    background-color:blue;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="25"] {
-    background-color:blue;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="26"] {
-    background-color:blue;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="31"] {
-    background-color:red;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="32"] {
-    background-color:red;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="33"] {
-    background-color:red;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-id="34"] {
-    background-color:red;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-}
-
-div[data-name="Ambulance"] {
-    background-color:yellow;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-
-}
-
-div[data-name="Brandweer"] {
-    background-color:red;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-
-}
-
-div[data-name="Politie"] {
-    background-color:blue;
-    border: #c9c3c3 3px solid;
-    padding:20px;
-
-}
-
-
-#emergencies{
-    background-color:black;
-    border: black solid 2px;
-    margin:20px;
-
+.Politie {
+    background-color: blue;
 }
 
 .error {

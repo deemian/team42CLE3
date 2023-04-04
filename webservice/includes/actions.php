@@ -85,7 +85,7 @@ function getDataDetails($id)
                 ],
                 [
                     "id" => 32,
-                    "name" => "Ieamand zit vast",
+                    "name" => "Iemand zit vast",
                 ],
                 [
                     "id" => 33,
@@ -98,43 +98,69 @@ function getDataDetails($id)
             ]
         ],
         11 => [
-            // objects
+            "id" => 11,
+            "name" => "Iemand in gevaar",
+            "options" => "send"
         ],
         12 => [
-            // objects
+            "id" => 12,
+            "name" => "Acuut medische zorg nodig",
+            "options" => "send"
         ],
         13 => [
-            // objects
+            "id" => 13,
+            "name" => "Ernstig Ongeluk",
+            "options" => "send"
         ],
         21 => [
-            // objects
+            "id" => 21,
+            "name" => "Lijk",
+            "options" => "send"
         ],
         22 => [
-            // objects
+            "id" => 22,
+            "name" => "Overval",
+            "options" => "send"
         ],
         23 => [
-            // objects
+            "id" => 23,
+            "name" => "Gijzeling",
+            "options" => "send"
         ],
         24 => [
-            // objects
+            "id" => 24,
+            "name" => "Mishandeling",
+            "options" => "send"
         ],
         25 => [
-            // objects
+            "id" => 25,
+            "name" => "Steekpartij",
+            "options" => "send"
         ],
         26 => [
-            // objects
+            "id" => 26,
+            "name" => "Overig",
+            "options" => "send"
         ],
         31 => [
-            // objects
+            "id" => 31,
+            "name" => "Brand",
+            "options" => "send"
         ],
         32 => [
-            // objects
+            "id" => 32,
+            "name" => "Iemand zit vast",
+            "options" => "send"
         ],
         33 => [
-            // objects
+            "id" => 33,
+            "name" => "Gaslek",
+            "options" => "send"
         ],
         34 => [
-            // objects
+            "id" => 34,
+            "name" => "Bosbrand",
+            "options" => "send"
         ]
     ];
 
