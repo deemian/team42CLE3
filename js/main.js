@@ -172,7 +172,7 @@ function editButtonHandler() {
 
     let sendButton = document.createElement('button');
     sendButton.classList.add('send');
-    sendButton.innerHTML = "Versturen";
+    sendButton.innerHTML = "Toch versturen";
     emergencies.appendChild(sendButton);
 }
 
